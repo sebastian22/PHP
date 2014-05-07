@@ -36,26 +36,20 @@ Goals:
                   "password" => 'password does not work',  
                 );
                 
-                $email = filter_input(INPUT_POST, 'email');
+                $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
                 $username = filter_input(INPUT_POST, 'username');
                 $password = filter_input(INPUT_POST, 'password');
 
 
                 if (!empty($email)) {
                     $errorMessages['email'] = '';
-                }/* else {
-                    echo '<style> input[name=email] {border: 1px solid red;}</style>';
-                }*/
+                }
                 if (!empty($username)) {
                     $errorMessages['username'] = '';
-                }/* else {
-                    echo '<style> input[name=username] {border: 1px solid red;}</style>';
-                }*/
+                }
                 if (!empty($password)) {
                     $errorMessages['password'] = '';
-                }/*else {
-                    echo '<style> input[name=password] {border: 1px solid red;}</style>';
-                }*/
+                }
             
              }
         ?>
@@ -86,7 +80,7 @@ Goals:
             ?>   
             
             Password: <input type="password" name="password" class="<?php if ( !empty($_POST)){ 
-                                                                                if(!empty($email)){} 
+                                                                                if(!empty($password)){} 
                                                                                 else echo inputerror;}?>" /> <br />
             <?php 
             if ( !empty($errorMessages["password"]) )
