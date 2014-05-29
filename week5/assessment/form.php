@@ -124,18 +124,22 @@ and open the template in the editor.
                 </textarea>
                 <br />
                 
-                <!-- Display the input entered by user -->
-                <label for="display">Display:</label>
-                <textarea id="display" type="text" name="display" rows="4" cols="36"/>
+                
+                
+                
+                <!-- Display the input entered by user 
+                <label for="display">Display:</label>-->
+                
+                <div class="Preview" hidden="true">
+                <h1 class="preview" for="display">Preview</h1>
                     <?php 
-                        echo $signup->fullname, "\n",
-                             $signup->state,"\n",
-                             $signup->comments, "\n", 
-                             //It will display te timespan
-                             $date;
+                        echo "<h3> First Name: $signup->fullname <br />",
+                             "State: $signup->state <br />",
+                             "Posted On: $date->date <br />",   
+                             "Comments: $signup->comments <br /></h3>";
+                            
                     ?>
-                </textarea>
-                <br />
+                </div>
                 
                 <input type="submit" value="Submit" />
             </fieldset>

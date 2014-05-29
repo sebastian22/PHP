@@ -56,10 +56,10 @@
                 <?php
                 
                 foreach($states as $stateid=>$state){
-                    if( $addressResult['state'] === $state ){
-                        echo'<option value="',$state,'" selected = "selected">',$state,'</option>';
+                    if( $addressResult['state'] === $stateid ){
+                        echo'<option value="',$stateid,'" selected = "selected">',$state,'</option>';
                     }  else {
-                      echo'<option value="',$state,'">',$state,'</option>';  
+                      echo'<option value="',$stateid,'">',$state,'</option>';  
                     }
                 }
                 
@@ -72,6 +72,7 @@
                 
                 <input type="hidden" name="id" value="<?php echo $addressResult['id']; ?>" />
                 <input type="submit" value="Submit" />
+                <a href="viewaddress.php">Go back to Address Book</a>
             </fieldset>
         </form>
         

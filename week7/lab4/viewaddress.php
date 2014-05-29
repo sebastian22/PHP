@@ -40,10 +40,13 @@ and open the template in the editor.
                  echo '<td>', $value['state'] ,'</td>';          
                  echo '<td>', $value['zip'] ,'</td>';          
                  echo '<td>', $value['name'] ,'</td>';          
-                 echo '<td><form name="mainform" action="updateaddress.php" method="get"><input name="id" type="hidden" value="', $value['id'] ,'" /><input type="submit" value="Edit" /></form> </td>';     
-                echo '</tr>';
+                 echo '<td><form name="mainform" action="updateaddress.php" method="get"><input name="id" type="hidden" value="', $value['id'] ,'" /><input type="submit" value="Edit" /></form> </td>';
+                 
+                 echo '</tr>';
             }
             echo '</table>';
+            
+            echo '<td><br/><br/><form name="mainform" action="createPage.php" method="get"><input name="id" type="hidden" value="', $value['id'] ,'" /><input type="submit" value="Create" /></form> </td>';
         ?>
         
         

@@ -27,8 +27,28 @@ class AddressBook extends DB {
     *
     * @return boolean
     */  
-    public function create() {
+    public function create($AddressbookModel) {
+        $result = false;
         
+        
+         if ( null !== $this->getDB() && $AddressbookModel instanceof AddressbookModel) {
+            $dbs = $this->getDB()->prepare('insert into addressbook set address = :address, city = :city, state = :state, zip = :zip, name = :name ');
+            $dbs->bindParam(':address', $AddressbookModel->address, PDO::PARAM_STR);
+            $dbs->bindParam(':city', $AddressbookModel->city, PDO::PARAM_STR);
+            $dbs->bindParam(':state', $AddressbookModel->state, PDO::PARAM_STR);
+            $dbs->bindParam(':zip', $AddressbookModel->zip, PDO::PARAM_STR);
+            $dbs->bindParam(':name', $AddressbookModel->name, PDO::PARAM_STR);
+            
+            if ( $dbs->execute() && $dbs->rowCount() > 0 ) {
+                $result = true;
+            }
+            else {
+                var_dump($dbs->errorInfo());
+            }
+        
+         }   
+        
+        return $result;
     }
     
     /**

@@ -12,10 +12,15 @@ and open the template in the editor.
     <body>
         <?php
         // put your code here
-        //phpinfo();
         
+        //error_log("this is a test");
         
-        echo "hello everyone"
+             
+        error_log("\nthis is a test", 3, "logs/errors.log");
+        
+        //print_r($statement->errorInfo());
+        
+        //intval($db->lastInsertId());
         ?>
     </body>
 </html>
